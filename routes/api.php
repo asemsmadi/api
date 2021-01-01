@@ -45,8 +45,8 @@ Route::prefix('delivery')->middleware('delivery')->namespace('Api\v1\delivery')-
     Route::post('getTransaction', 'home@getTransaction');
     Route::post('acceptTransaction/{id}', 'home@acceptTransaction');
 });
-Route::prefix('admin')->namespace('Api\v1\admin')->group(function () {
-//Route::prefix('admin')->middleware('adminAuth')->namespace('Api\v1\admin')->group(function () {
+//Route::prefix('admin')->namespace('Api\v1\admin')->group(function () {
+Route::prefix('admin')->middleware('adminAuth')->namespace('Api\v1\admin')->group(function () {
     Route::get('home', function () {
         return auth()->user();
     });
